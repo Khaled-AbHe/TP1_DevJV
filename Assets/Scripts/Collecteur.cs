@@ -22,20 +22,20 @@ public class Collecteur : MonoBehaviour
     {
         // TODO 3 : vérifier que l'objet touché est une batterie.
         if (!autre.CompareTag("Batterie")) {
-
-            // TODO 4 : augmenter le compteur et afficher la progression.
-            batteriesCollectees++;
-            Debug.Log($"Batteries : {batteriesCollectees}/{objectif}");
-
-            // TODO 5 : détruire uniquement la batterie touchée.
-            Destroy(autre.gameObject);
+            return;
         }
+        
+        // TODO 4 : augmenter le compteur et afficher la progression.
+        batteriesCollectees++;
+        Debug.Log($"Batteries : {batteriesCollectees}/{objectif}");
+
+        // TODO 5 : détruire uniquement la batterie touchée.
+        Destroy(autre.gameObject);
 
         // TODO 6 : afficher la porte lorsque l'objectif est atteint.
         if (batteriesCollectees >= objectif) {
             porteSortie.SetActive(true);
             Debug.Log("PORTE DÉVERROUILLÉE !");
-            return;
         }
     }
 
